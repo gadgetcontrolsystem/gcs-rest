@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="gcs-rest" />
         <module name="Spring4MVCCRUDRestService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gcs-rest" target="1.5" />
       <module name="Spring4MVCCRUDRestService" target="1.5" />
     </bytecodeTargetLevel>
   </component>

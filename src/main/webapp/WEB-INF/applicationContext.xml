@@ -5,5 +5,9 @@
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-
+    <import resource="classpath:context/source/common.xml"/>
+    <import resource="classpath:context/source/properties_postgres.xml"/>
+    <import resource="classpath:context/source/data_source_postgres.xml"/>
+    <import resource="classpath:context/source/data_access.xml"/>
+    <import resource="classpath:context/source/mybatis_postgres.xml"/>
 </beans>
