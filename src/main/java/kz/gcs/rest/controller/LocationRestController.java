@@ -1,17 +1,13 @@
 package kz.gcs.rest.controller;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import kz.gcs.rest.model.Location;
 import kz.gcs.rest.service.LocationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
