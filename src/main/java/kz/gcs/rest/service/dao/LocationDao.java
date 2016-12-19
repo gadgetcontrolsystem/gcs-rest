@@ -1,9 +1,12 @@
 package kz.gcs.rest.service.dao;
 
 import kz.gcs.rest.model.Location;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,11 +14,10 @@ import java.util.List;
  */
 @Mapper
 public interface LocationDao {
-    @Select("SELECT id,time, country, city, LONGTITUDE as lon, LATITUDE as lat, accuracy as accuracy, GADGET_ID as gadgetId FROM locations order by time desc limit 1")
-    Location getLastLocation();
 
+    @Insert("INSERT INTO locations(longitude, latitude, \"time\", gadget_id, accuracy) VALUES (#{longitude},#{latitude},#{time},#{gadget_id},#{accuracy});")
+    void insLocation(Location location);
 
-    @Select("SELECT id,time, country, city, LONGTITUDE as lon, LATITUDE as lat,accuracy as accuracy, GADGET_ID as gadgetId FROM locations")
-    List<Location> getAllLocations();
-
+    @Select("SELECT gadget_id from users where upper(login)=upper(#{login})")
+    Long getGadgetIdByLogin(String login);
 }

@@ -8,32 +8,23 @@ public final class Location implements Serializable, Comparable<Location> {
 
     private Long id;
     private Date time;
-    private String country;
-    private String city;
-    private Double lat;
-    private Double lon;
+    private Double latitude;
+    private Double longitude;
     private Double accuracy;
-    private Long gadgetId;
+    private Long gadget_id;
 
 
-    private boolean read;
-
-    public Location(Long id, Date time, String country, String city, Double lat, Double lon, Long gadgetId, Double accuracy, boolean read) {
-        this.id = id;
+    public Location(Date time, Double latitude, Double longitude, Double accuracy, Long gadget_id) {
         this.time = time;
-        this.country = country;
-        this.city = city;
-        this.lat = lat;
-        this.lon = lon;
-        this.gadgetId = gadgetId;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.accuracy = accuracy;
-        this.read = read;
+        this.gadget_id = gadget_id;
     }
 
     public Location() {
     }
 
-    @Override
     public int compareTo(Location o1) {
         return this.getTime().compareTo(o1.getTime());
     }
@@ -54,56 +45,20 @@ public final class Location implements Serializable, Comparable<Location> {
         this.time = time;
     }
 
-    public String getCountry() {
-        return country;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
-    public String getCity() {
-        return city;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public Double getLat() {
-        return lat;
-    }
-
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
-
-    public Double getLon() {
-        return lon;
-    }
-
-    public void setLon(Double lon) {
-        this.lon = lon;
-    }
-
-    public Long getGadgetId() {
-        return gadgetId;
-    }
-
-    public void setGadgetId(Long gadgetId) {
-        this.gadgetId = gadgetId;
-    }
-
-    public boolean isRead() {
-        return read;
-    }
-
-    public void setRead(boolean read) {
-        this.read = read;
-    }
-
-    public String displayStr() {
-        return getCity() + " " + getTime();
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public Double getAccuracy() {
@@ -114,18 +69,11 @@ public final class Location implements Serializable, Comparable<Location> {
         this.accuracy = accuracy;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "id=" + id +
-                ", time=" + time +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", lat=" + lat +
-                ", lon=" + lon +
-                ", accuracy=" + accuracy +
-                ", gadgetId=" + gadgetId +
-                ", read=" + read +
-                '}';
+    public Long getGadget_id() {
+        return gadget_id;
+    }
+
+    public void setGadget_id(Long gadget_id) {
+        this.gadget_id = gadget_id;
     }
 }

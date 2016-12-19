@@ -6,7 +6,6 @@ import kz.gcs.rest.service.dao.LocationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
 /**
  * Created by kaydar on 10/17/16.
@@ -17,13 +16,13 @@ public class LocationServiceImpl implements LocationService {
     @Autowired
     private LocationDao locationDao;
 
-    @Override
-    public Location getLastLocation(long gadgetId) {
-        return locationDao.getLastLocation();
+
+    public Long getGadgetIdByLogin(String login) {
+
+        return locationDao.getGadgetIdByLogin(login);
     }
 
-    @Override
-    public List<Location> getLocations(long gadgetId) {
-        return locationDao.getAllLocations();
+    public void insertLocation(Location location) {
+        locationDao.insLocation(location);
     }
 }
