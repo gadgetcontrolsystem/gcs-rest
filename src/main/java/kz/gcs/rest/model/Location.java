@@ -29,6 +29,17 @@ public final class Location implements Serializable, Comparable<Location> {
         return this.getTime().compareTo(o1.getTime());
     }
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "time=" + time +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", accuracy=" + accuracy +
+                ", gadget_id=" + gadget_id +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

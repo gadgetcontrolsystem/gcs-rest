@@ -40,23 +40,21 @@ public class LocationRestController {
             return new ResponseEntity<Boolean>(false, HttpStatus.OK);
         }
 
-        logger.info("NEW REQUEST from" + account);
-        logger.info("DATE " + date);
-        logger.info("latitude " + latitude);
-        logger.info("longitude " + longitude);
-        logger.info("accuracy " + accuracy);
+        logger.info("NEW REQUEST from " + account);
 
         logger.info("Getting gadget_id for " + account);
         Long gId = locationService.getGadgetIdByLogin(account);
-        logger.info("Found gadget_id for " + account + " is " + gId);
 
         if (gId == null) {
             logger.info("gadget_id for " + account + " NOT FOUND, exiting service");
             return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+        } else {
+            logger.info("Found gadget_id for " + account + " is " + gId);
         }
 
         Location newLoc = new Location(date, latitude, longitude, accuracy, gId);
         logger.info("Start inserting new location for " + account);
+        logger.info("location " + newLoc);
         locationService.insertLocation(newLoc);
         logger.info("Finish inserting new location for " + account);
 
